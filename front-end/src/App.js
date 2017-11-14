@@ -13,7 +13,7 @@ export default class Site extends Component {
 
     loadResults(request){
         console.log(request);
-        axios.get(`/api/nlp?request=${request}`)
+        axios.get(`http://localhost:8888/api/nlp?request=${request}`)
             .then(function (response) {
                 console.log(response);
             })
