@@ -20,6 +20,11 @@ export default class SearchBar extends Component {
         e.preventDefault();
     }
 
+    listenToSpeech(){
+        console.log("Listening...")
+        /* AUSTIN PUT YOUR CODE HERE */
+    }
+
     render() {
         return (
             <div className="advance-search">
@@ -29,7 +34,7 @@ export default class SearchBar extends Component {
                             <input type="text" value={this.state.value} onChange={this.handleChange} className="form-control"
                                    id="search" placeholder="Search for Listings"/>
                             <span className="input-group-btn">
-                                    <button className="btn btn-primary voice-button" type="button">
+                                    <button className="btn btn-primary voice-button" type="button" onClick={this.listenToSpeech}>
                                         <i className="fa fa-microphone fa-lg"></i>
                                     </button>
                             </span>

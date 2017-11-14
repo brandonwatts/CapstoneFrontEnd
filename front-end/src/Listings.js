@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 
-
 export default class Listings extends Component{
   render() {
     return (
@@ -19,12 +18,10 @@ export default class Listings extends Component{
                 <div className="product-item bg-light">
                   <div className="card">
                     <div className="thumb-content">
-                      <a href>
                         <img className="card-img-top img-fluid" src="https://g5-assets-cld-res.cloudinary.com/image/upload/q_auto,f_auto,fl_lossy/g5/g5-c-iekds62v-sherman-residential-client/g5-cl-1go4aq4t0e-axis-3700/uploads/minigal2.jpg" alt="Card" />
-                      </a>
                     </div>
                     <div className="card-body">
-                      <h4 className="card-title"><a href>Apartment 1</a></h4>
+                      <h4 className="card-title">Apartment 1</h4>
                       <ul className="list-inline product-meta">
                         <li className="list-inline-item">
                           <i className="fa fa-money" />$900
@@ -42,12 +39,10 @@ export default class Listings extends Component{
                 <div className="product-item bg-light">
                   <div className="card">
                     <div className="thumb-content">
-                      <a href>
                         <img className="card-img-top img-fluid" src="https://g5-assets-cld-res.cloudinary.com/image/upload/q_auto,f_auto,fl_lossy/g5/g5-c-iekds62v-sherman-residential-client/g5-cl-1go4aq4t0e-axis-3700/uploads/minigal2.jpg" alt="Card" />
-                      </a>
                     </div>
                     <div className="card-body">
-                      <h4 className="card-title"><a href>Apartment 2</a></h4>
+                      <h4 className="card-title">Apartment 2</h4>
                       <ul className="list-inline product-meta">
                         <li className="list-inline-item">
                           <i className="fa fa-money" />$900
@@ -65,12 +60,10 @@ export default class Listings extends Component{
                 <div className="product-item bg-light">
                   <div className="card">
                     <div className="thumb-content">
-                      <a href>
                         <img className="card-img-top img-fluid" src="https://g5-assets-cld-res.cloudinary.com/image/upload/q_auto,f_auto,fl_lossy/g5/g5-c-iekds62v-sherman-residential-client/g5-cl-1go4aq4t0e-axis-3700/uploads/minigal2.jpg" alt="Card" />
-                      </a>
                     </div>
                     <div className="card-body">
-                      <h4 className="card-title"><a href>Apartment 3</a></h4>
+                      <h4 className="card-title">Apartment 3</h4>
                       <ul className="list-inline product-meta">
                         <li className="list-inline-item">
                           <i className="fa fa-money" />$900
