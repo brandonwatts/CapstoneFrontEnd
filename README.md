@@ -6,33 +6,29 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
+Start by downloading yarn if you do not have it. You can download yarn from [here](https://yarnpkg.com/en/docs/install).
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
-
-Say what the step will be
+In the 'front-end' directory, run the following command to get all the project dependencies:
 
 ```
-Give the example
+yarn install
 ```
 
-And repeat
+Finally you can run the application on the development server (http://localhost:3000) with the folowing command:
 
 ```
-until finished
+yarn start
 ```
-
-End with an example of getting some data out of the system or using it for a little demo
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+Running the following command will bundles the app into static files for production:
+
+```
+yarn run build
+```
 
 ## Built With
 
