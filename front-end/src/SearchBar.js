@@ -8,7 +8,7 @@ export default class SearchBar extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {value: '', first: true};
+        this.state = {value: ''};
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);		
@@ -61,7 +61,7 @@ export default class SearchBar extends Component {
 			{
 				console.log("Speech Received Result");
 								
-				var current_transcript = '';		
+				//var current_transcript = '';		
 
 				for (var i = event.resultIndex; i < event.results.length; ++i) 
 				{
@@ -71,7 +71,8 @@ export default class SearchBar extends Component {
 				  } 
 				  else 
 				  {
-					current_transcript += event.results[i][0].transcript;
+					// Can be used to display current string thus far while they are speaking
+					//current_transcript += event.results[i][0].transcript;
 				  }
 				}					
 			};
