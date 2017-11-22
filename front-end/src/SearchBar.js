@@ -1,13 +1,17 @@
 import React, {Component} from "react";
 
+var recognition = null;
+var recognizing = false;
+var final_transcript = '';
+
 export default class SearchBar extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {value: ''};
+        this.state = {value: '', first: true};
 
         this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);		
     }
 
     handleChange(e) {
@@ -19,11 +23,71 @@ export default class SearchBar extends Component {
         this.props.loadResults(this.state.value);
         e.preventDefault();
     }
+	
+    listenToSpeech()
+	{		
+		if(recognition === null)
+		{
+			if (!('webkitSpeechRecognition' in window)) 
+			{
+				console.log("Web Speech API not available");
+				return;
+			}	
+			
+			recognition = new window.webkitSpeechRecognition();
+			recognition.continuous = true;
+			recognition.interimResults = true;
+			
+			recognition.onstart = function() 
+			{
+				console.log("Speech Started Recording");
+				recognizing = true;				
+			};
+			
+			recognition.onerror = function(event) 
+			{
+				console.log("Speech Error");
+				console.log(final_transcript);
+			};
+			
+			recognition.onend = function()
+			{
+				console.log("Speech Stopped Recording");		
+				console.log(final_transcript);	
+				recognizing = false;				
+			};
+			
+			recognition.onresult = function(event) 
+			{
+				console.log("Speech Received Result");
+								
+				var current_transcript = '';		
 
-    listenToSpeech(){
-        console.log("Listening...")
-        /* AUSTIN PUT YOUR CODE HERE */
-    }
+				for (var i = event.resultIndex; i < event.results.length; ++i) 
+				{
+				  if (event.results[i].isFinal) 
+				  {
+					final_transcript += event.results[i][0].transcript;
+				  } 
+				  else 
+				  {
+					current_transcript += event.results[i][0].transcript;
+				  }
+				}					
+			};
+		}
+		
+		if(!recognizing)
+		{
+			console.log("Listening...");
+			recognition.start();
+		}
+		else
+		{
+			recognition.stop();
+			final_transcript = '';
+		}
+	}
 
     render() {
         return (
