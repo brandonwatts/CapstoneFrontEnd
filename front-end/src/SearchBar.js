@@ -59,9 +59,9 @@ export default class SearchBar extends Component {
 			
 			recognition.onresult = function(event) 
 			{
-				console.log("Speech Received Result");
+				//console.log("Speech Received Result");
 								
-				//var current_transcript = '';		
+				var current_transcript = '';		
 
 				for (var i = event.resultIndex; i < event.results.length; ++i) 
 				{
@@ -72,9 +72,11 @@ export default class SearchBar extends Component {
 				  else 
 				  {
 					// Can be used to display current string thus far while they are speaking
-					//current_transcript += event.results[i][0].transcript;
+					current_transcript += event.results[i][0].transcript;
 				  }
-				}					
+				}
+
+				console.log(current_transcript);
 			};
 		}
 		
