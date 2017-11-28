@@ -32,6 +32,8 @@ export default class SearchBar extends Component {
                     this.setState({value:current_transcript});
                 }
             }
+
+            this.setState({final_transcript: this.capitalize(this.state.final_transcript)});
         };
             
         this.handleChange = this.handleChange.bind(this);
@@ -58,6 +60,12 @@ export default class SearchBar extends Component {
         this.setState({value:''});
         recognition.start();
 	}
+
+    capitalize(s) {
+        let first_char = /\S/;
+        return s.replace(first_char, function(m) { return m.toUpperCase(); });
+    }
+
 
     render() {
         return (
