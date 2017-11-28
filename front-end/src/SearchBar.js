@@ -1,15 +1,39 @@
 import React, {Component} from "react";
 
-var recognition = null;
-var recognizing = false;
-var final_transcript = '';
+let recognition = null;
 
 export default class SearchBar extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {value: ''};
+        this.state = {value: '', recognizing: false, final_transcript:''};
 
+        recognition = new window.webkitSpeechRecognition();
+        recognition.continuous = false;
+        recognition.interimResults = true;
+        recognition.lang = 'en-US';
+
+        recognition.onstart = (event) => {this.setState({recognizing:true, final_transcript:''})};
+            
+        recognition.onerror = (event) => {console.log("An error has occured.")};
+            
+        recognition.onend = (event) => {this.setState({recognizing:false, value: this.state.final_transcript})};
+            
+        recognition.onresult = (event) => {
+                                
+            var current_transcript = '';        
+
+            for (var i = event.resultIndex; i < event.results.length; ++i) {
+                if (event.results[i].isFinal) {
+                    this.setState({final_transcript: (this.state.final_transcript + event.results[i][0].transcript)});
+                }
+                else {
+                    current_transcript += event.results[i][0].transcript;
+                    this.setState({value:current_transcript});
+                }
+            }
+        };
+            
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);		
     }
@@ -24,72 +48,15 @@ export default class SearchBar extends Component {
         e.preventDefault();
     }
 	
-    listenToSpeech()
-	{		
-		if(recognition === null)
-		{
-			if (!('webkitSpeechRecognition' in window)) 
-			{
-				console.log("Web Speech API not available");
-				return;
-			}	
-			
-			recognition = new window.webkitSpeechRecognition();
-			recognition.continuous = true;
-			recognition.interimResults = true;
-			
-			recognition.onstart = function() 
-			{
-				console.log("Speech Started Recording");
-				recognizing = true;				
-			};
-			
-			recognition.onerror = function(event) 
-			{
-				console.log("Speech Error");
-				console.log(final_transcript);
-			};
-			
-			recognition.onend = function()
-			{
-				console.log("Speech Stopped Recording");		
-				console.log(final_transcript);	
-				recognizing = false;				
-			};
-			
-			recognition.onresult = function(event) 
-			{
-				//console.log("Speech Received Result");
-								
-				var current_transcript = '';		
+    listenToSpeech(){		
 
-				for (var i = event.resultIndex; i < event.results.length; ++i) 
-				{
-				  if (event.results[i].isFinal) 
-				  {
-					final_transcript += event.results[i][0].transcript;
-				  } 
-				  else 
-				  {
-					// Can be used to display current string thus far while they are speaking
-					current_transcript += event.results[i][0].transcript;
-				  }
-				}
+        if (this.state.recognizing) {
+            recognition.stop();
+            return;
+        }
 
-				console.log(current_transcript);
-			};
-		}
-		
-		if(!recognizing)
-		{
-			console.log("Listening...");
-			recognition.start();
-		}
-		else
-		{
-			recognition.stop();
-			final_transcript = '';
-		}
+        this.setState({value:''});
+        recognition.start();
 	}
 
     render() {
@@ -98,11 +65,15 @@ export default class SearchBar extends Component {
                 <form onSubmit={this.handleSubmit}>
                     <div className="row">
                         <div className="input-group col-lg-10 col-md-12">
-                            <input type="text" value={this.state.value} onChange={this.handleChange} className="form-control"
-                                   id="search" placeholder="Search for Listings"/>
+                            <input type="text" value={this.state.value} onChange={this.handleChange} 
+                            className={this.state.recognizing ? "form-control intermediate" : "form-control"} id="search" placeholder="Search for Listings"/>
                             <span className="input-group-btn">
-                                    <button className="btn btn-primary voice-button" type="button" onClick={this.listenToSpeech}>
-                                        <i className="fa fa-microphone fa-lg"></i>
+                                    <button className="btn btn-primary voice-button" type="button" onClick={this.listenToSpeech.bind(this)}>
+                                    {
+                                        this.state.recognizing
+                                        ? <i className="fa fa-microphone fa-lg faa-pulse animated"></i>
+                                        : <i className="fa fa-microphone fa-lg"></i>
+                                    }
                                     </button>
                             </span>
                         </div>
