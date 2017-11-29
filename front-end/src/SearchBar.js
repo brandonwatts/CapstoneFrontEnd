@@ -17,7 +17,10 @@ export default class SearchBar extends Component {
             
         recognition.onerror = (event) => {console.log("An error has occured.")};
             
-        recognition.onend = (event) => {this.setState({recognizing:false, value: this.state.final_transcript})};
+        recognition.onend = (event) => {
+            this.setState({recognizing:false, value: this.state.final_transcript})
+            this.props.loadResults(this.state.value);
+        };
             
         recognition.onresult = (event) => {
                                 
