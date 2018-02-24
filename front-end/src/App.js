@@ -73,7 +73,7 @@ export default class Site extends Component {
           </div>
           <div className="row">
             <div className="col-12">
-              <pre style={{paddingBottom:'70px'}}>{this.state.api_text}</pre>
+              <pre style={{paddingBottom:'70px'}}>{this.state.api_response}</pre>
             </div>
           </div>
         </div>
