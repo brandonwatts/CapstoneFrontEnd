@@ -57,7 +57,7 @@ export default class Site extends Component {
       </section>
       {
         this.state.api_type_costar
-          ? <CardDeck/>
+          ? <CardDeck api_response={this.state.api_response}/>
           : <Table api_response={this.state.api_response}/>
       }
       <section className="popular-deals section bg-gray" style={{
