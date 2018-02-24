@@ -252,7 +252,7 @@ button {
 
 .hero-area .advance-search {
   background: #fff;
-  padding: 40px 30px;
+  padding: 25px 25px;
   border-radius: 3px;
   margin-bottom: -50px;
   box-shadow: -1px 3px 6px rgba(0, 0, 0, 0.12);
@@ -265,10 +265,6 @@ button {
 
 .hero-area .advance-search button {
   display: block;
-}
-
-.section {
-  padding: 100px 0;
 }
 
 .section-sm {
@@ -373,4 +369,12 @@ li>i {
   color: #5672f9;
   border-width: 1px 1px 1px 0px;
   border-color: #dedede;
+}
+
+.btn-group{
+  width:100%
+}
+
+td{
+  height: 50px;
 }

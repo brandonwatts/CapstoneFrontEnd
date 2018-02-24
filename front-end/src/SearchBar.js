@@ -9,7 +9,7 @@ export default class SearchBar extends Component {
     this.state = {
       value: '',
       recognizing: false,
-      final_transcript: ''
+      final_transcript: '',
     };
 
     recognition = new window.webkitSpeechRecognition();
@@ -83,29 +83,35 @@ export default class SearchBar extends Component {
   }
 
   render() {
-    return (
-      <div className="advance-search">
-        <form onSubmit={this.handleSubmit}>
-          <div className="row">
-            <div className="input-group col-lg-10 col-md-12">
-              <input type="text" value={this.state.value} onChange={this.handleChange} className={this.state.recognizing
+    return (<div className="advance-search">
+      <form onSubmit={this.handleSubmit}>
+        <div className="row">
+          <div className="input-group col-9">
+            <input type="text" value={this.state.value} onChange={this.handleChange} className={this.state.recognizing
                 ? "form-control intermediate"
                 : "form-control"} id="search" placeholder="Search for Listings"/>
-              <span className="input-group-btn">
-                <button className="btn btn-primary voice-button" type="button" onClick={this.listenToSpeech.bind(this)}>
-                  {this.state.recognizing
+            <span className="input-group-btn">
+              <button className="btn btn-primary voice-button" type="button" onClick={this.listenToSpeech.bind(this)}>
+                {
+                  this.state.recognizing
                     ? <i className="fa fa-microphone fa-lg faa-pulse animated"></i>
                     : <i className="fa fa-microphone fa-lg"></i>
-                  }
-                </button>
-              </span>
-            </div>
-            <div className="col-lg-2 col-md-12">
-              <button className="btn btn-main">SEARCH</button>
+                }
+              </button>
+            </span>
+          </div>
+          <div className="col-3">
+            <div className="btn-group" data-toggle="buttons">
+              <button className={this.props.ApiType ? "btn btn-primary" : "btn btn-outline-primary"}  type="button" onClick={this.props.toggleApiType}>
+              CoStar
+              </button>
+              <button className={this.props.ApiType ? "btn btn-outline-primary" : "btn btn-primary"} type="button" onClick={this.props.toggleApiType}>
+              General
+              </button>
             </div>
           </div>
-        </form>
-      </div>
-    );
+        </div>
+      </form>
+    </div>);
   }
 }
