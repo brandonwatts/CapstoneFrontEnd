@@ -16,7 +16,8 @@ export default class Site extends Component {
 
   toggleApiType() {
     this.setState(state => ({
-      api_type_costar: !state.api_type_costar
+      api_type_costar: !state.api_type_costar,
+      api_response: ""
     }));
   }
 
