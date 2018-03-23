@@ -70,7 +70,7 @@ export default class Table extends Component {
 
   render() {
     return (
-      <section className="popular-deals section bg-gray" style={{paddingTop:'100px'}}>
+      <section className="popular-deals section bg-gray" style={{paddingTop:'100px', paddingBottom:'100px'}}>
         <div className="container">
           <div className="row">
             <div className="col-md-12">

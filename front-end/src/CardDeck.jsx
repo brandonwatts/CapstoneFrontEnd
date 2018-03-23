@@ -10,17 +10,22 @@ export default class CardDeck extends Component {
     };
   }
 
-  componentWillReceiveProps(nextProps){
-    var api = JSON.parse(nextProps.api_response)
-    var api_apartments = api.apartments.slice(0,9)
-    this.setState({
-      apartments : api_apartments
-    });
+  componentDidMount(){
+    if (this.props.api_response !== ""){
+      var api = JSON.parse(this.props.api_response)
+      console.log(api)
+      var api_apartments = api.slice(0,9)
+      console.log(api_apartments)
+      this.setState({
+        apartments : api_apartments
+      });
+    }
   }
 
   render() {
     return (<section className="popular-deals section bg-gray" style={{
-        paddingTop: '100px'
+        paddingTop: '100px',
+        paddingBottom: '100px'
       }}>
       <div className="container">
         <div className="row">
