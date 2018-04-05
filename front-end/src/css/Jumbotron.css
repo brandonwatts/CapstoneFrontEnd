@@ -1,0 +1,50 @@
+/** This is for cool line under the title */
+
+.section-title h2:before {
+  content: " ";
+  display: block;
+  margin: 0 auto;
+  position: absolute;
+  bottom: -24px;
+  left: 0;
+  right: 0;
+  width: 127px;
+  height: 2px;
+  background-color: #e0e0e0;
+}
+
+.section-title h2:after {
+  content: " ";
+  display: block;
+  margin: 0 auto;
+  position: absolute;
+  bottom: -25px;
+  left: 0;
+  right: 0;
+  width: 40px;
+  height: 5px;
+  background-color: #5672f9;
+}
+
+/*********************************************/
+
+.overly {
+  position: relative;
+}
+
+.overly:before {
+  content: "";
+  background: rgba(0, 0, 0, 0.51);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.bg-1 {
+  background: url("https://wallpaperscraft.com/image/city_buildings_sky_water_805_3840x2160.jpg")
+    center center fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+}

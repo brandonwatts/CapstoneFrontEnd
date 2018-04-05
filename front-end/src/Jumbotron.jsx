@@ -1,5 +1,6 @@
 import React from "react";
 import SearchBar from "./SearchBar.jsx";
+import "./css/Jumbotron.css";
 
 const Jumbotron = props => (
   <section className="hero-area bg-1 text-center overly">
