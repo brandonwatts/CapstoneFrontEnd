@@ -8,7 +8,10 @@ export default class General extends Component {
   render() {
     return (
       <div>
-        <NavBar changeCurrentPage={this.props.changeCurrentPage} />
+        <NavBar
+          changeCurrentPage={this.props.changeCurrentPage}
+          current_page="General"
+        />
         <Jumbotron loadResults={this.props.search} />
         <Table api_response={this.props.api_response} />
         <Footer />

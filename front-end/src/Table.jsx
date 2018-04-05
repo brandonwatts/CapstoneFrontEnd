@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./css/Table.css";
 
 export default class Table extends Component {
   constructor(props) {
@@ -77,13 +78,8 @@ export default class Table extends Component {
           </div>
           <div className="row">
             <div className="col-12">
-              <table
-                className="table table-bordered"
-                style={{
-                  marginBottom: "0"
-                }}
-              >
-                <thead className="thead-default">
+              <table className="table table-bordered mb-0">
+                <thead className="thead-light">
                   <tr>
                     <th className="w-25 text-center">Minimum Bedrooms</th>
                     <th className="w-25 text-center">Maximum Bedrooms</th>
@@ -104,13 +100,8 @@ export default class Table extends Component {
           </div>
           <div className="row">
             <div className="col-12">
-              <table
-                className="table table-bordered"
-                style={{
-                  marginBottom: "0"
-                }}
-              >
-                <thead className="thead-default">
+              <table className="table table-bordered mb-0">
+                <thead className="thead-light">
                   <tr>
                     <th className="w-25 text-center">Minimum Square Feet</th>
                     <th className="w-25 text-center">Maximum Square Feet</th>
@@ -131,13 +122,8 @@ export default class Table extends Component {
           </div>
           <div className="row">
             <div className="col-12">
-              <table
-                className="table table-bordered"
-                style={{
-                  marginBottom: "0"
-                }}
-              >
-                <thead className="thead-default">
+              <table className="table table-bordered mb-0">
+                <thead className="thead-light">
                   <tr>
                     <th className="w-25 text-center">City</th>
                     <th className="w-25 text-center">State</th>
@@ -158,13 +144,8 @@ export default class Table extends Component {
           </div>
           <div className="row">
             <div className="col-12">
-              <table
-                className="table table-bordered"
-                style={{
-                  marginBottom: "0"
-                }}
-              >
-                <thead className="thead-default">
+              <table className="table table-bordered mb-0">
+                <thead className="thead-light">
                   <tr>
                     <th className="w-25 text-center">Dog Friendly</th>
                     <th className="w-25 text-center">Cat Friendly</th>
@@ -201,13 +182,8 @@ export default class Table extends Component {
           </div>
           <div className="row">
             <div className="col-12">
-              <table
-                className="table table-bordered"
-                style={{
-                  marginBottom: "0"
-                }}
-              >
-                <thead className="thead-default">
+              <table className="table table-bordered mb-0">
+                <thead className="thead-light">
                   <tr>
                     <th className="w-25 text-center">Has Fitness Center</th>
                     <th className="w-25 text-center">Has Wheelchair Access</th>
@@ -244,13 +220,8 @@ export default class Table extends Component {
           </div>
           <div className="row">
             <div className="col-12">
-              <table
-                className="table table-bordered"
-                style={{
-                  marginBottom: "0"
-                }}
-              >
-                <thead className="thead-default">
+              <table className="table table-bordered mb-0">
+                <thead className="thead-light">
                   <tr>
                     <th className="w-25 text-center">Has Parking</th>
                     <th className="w-25 text-center">Star Rating</th>
@@ -283,13 +254,8 @@ export default class Table extends Component {
           </div>
           <div className="row">
             <div className="col-12">
-              <table
-                className="table table-bordered"
-                style={{
-                  marginBottom: "0"
-                }}
-              >
-                <thead className="thead-default">
+              <table className="table table-bordered mb-0">
+                <thead className="thead-light">
                   <tr>
                     <th className="w-25 text-center">Property Type</th>
                     <th className="w-25 text-center">Search Radius</th>

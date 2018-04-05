@@ -6,9 +6,13 @@ export default class NavBar extends Component {
     return (
       <div className="row">
         <div className="col-12">
-          <div className="container">
-            <nav className="navbar navbar-expand-lg navbar-light">
-              <a className="navbar-brand">SmartSearch</a>
+          <nav className="navbar navbar-expand-lg navbar-light">
+            <div className="container">
+              <a className="navbar-brand">
+                <div>
+                  <h3>SmartSearch</h3>
+                </div>
+              </a>
               <button
                 className="navbar-toggler"
                 type="button"
@@ -21,16 +25,24 @@ export default class NavBar extends Component {
                 <span className="navbar-toggler-icon" />
               </button>
               <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div className="navbar-nav">
+                <div className="navbar-nav ml-auto">
                   <a
-                    className="nav-item nav-link active"
+                    className={
+                      this.props.current_page === "General"
+                        ? "nav-item nav-link active"
+                        : "nav-item nav-link"
+                    }
                     href="#"
                     onClick={x => this.props.changeCurrentPage("General")}
                   >
                     General
                   </a>
                   <a
-                    className="nav-item nav-link"
+                    className={
+                      this.props.current_page === "Apartments"
+                        ? "nav-item nav-link active"
+                        : "nav-item nav-link"
+                    }
                     href="#"
                     onClick={x => this.props.changeCurrentPage("Apartments")}
                   >
@@ -38,8 +50,8 @@ export default class NavBar extends Component {
                   </a>
                 </div>
               </div>
-            </nav>
-          </div>
+            </div>
+          </nav>
         </div>
       </div>
     );

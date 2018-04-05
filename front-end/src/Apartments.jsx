@@ -9,7 +9,10 @@ export default class Apartments extends Component {
   render() {
     return (
       <div>
-        <NavBar changeCurrentPage={this.props.changeCurrentPage} />
+        <NavBar
+          changeCurrentPage={this.props.changeCurrentPage}
+          current_page="Apartments"
+        />
         <Jumbotron loadResults={this.props.search} />
         {this.props.isLoading ? (
           <LoadingAnimation />

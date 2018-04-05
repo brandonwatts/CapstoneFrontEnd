@@ -36,7 +36,7 @@ export default class CardDeck extends Component {
           </div>
           <div className="row">
             {this.isEmpty(this.state.apartments) ? (
-              <h2 className="col-12 text-center">Sorry. No Results.</h2>
+              <h3 className="col-12 text-center">Sorry. No Results.</h3>
             ) : (
               this.state.apartments.map(a => (
                 <ApartmentCard key={a.Listing.ListingKey} apartment={a} />
