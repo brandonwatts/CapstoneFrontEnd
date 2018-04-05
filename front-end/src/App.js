@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./css/App.css";
-import LoadingAnimation from "./LoadingAnimation.js";
 import General from "./General.jsx";
 import Apartments from "./Apartments.jsx";
 

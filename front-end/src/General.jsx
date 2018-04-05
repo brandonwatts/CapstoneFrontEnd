@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import SearchBar from "./SearchBar.js";
-import LoadingAnimation from "./LoadingAnimation.js";
 import Footer from "./Footer.jsx";
-import CardDeck from "./CardDeck.jsx";
 import Table from "./Table.js";
 import NavBar from "./NavBar.jsx";
 
