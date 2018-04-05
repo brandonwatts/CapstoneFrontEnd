@@ -2,7 +2,7 @@
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
 
@@ -10,9 +10,9 @@ Start by downloading yarn if you do not have it. You can download yarn from [her
 
 ### Installing
 
-In the 'front-end' directory, run the following command to get all the project dependencies:
-
+First move into the 'front-end' directory, then install the dependencies.
 ```
+cd front-end
 yarn install
 ```
 
@@ -22,15 +22,14 @@ Finally you can run the application on the development server (http://localhost:
 yarn start
 ```
 
-## Deployment
+### Server
 
-Running the following command will bundles the app into static files for production:
-
-```
-yarn run build
-```
+This is a front-end application for the Natural Search Flask app located [here](https://github.com/joshsticks/Capstone). For the front-end to work correctly the sever must be started per the instructions in the README. This application assumes that the sever is running on localhost:5000. To change this, you just simply change the 'proxy' in the package.json.
 
 ## Built With
+
+* [Javascript](https://www.javascript.com/)
+* [React](https://reactjs.org/)
 
 ## Authors
 
