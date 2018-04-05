@@ -5,12 +5,12 @@ export default class CardDeck extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      apartments: null
+      apartments: []
     };
   }
 
   componentDidMount() {
-    if (this.props.api_response) {
+    if (!this.isEmpty(this.props.api_response)) {
       var api = this.props.api_response;
       var api_apartments = api.slice(0, 9);
       this.setState({
@@ -19,11 +19,8 @@ export default class CardDeck extends Component {
     }
   }
 
-  isEmpty(arg) {
-    for (var item in arg) {
-      return false;
-    }
-    return true;
+  isEmpty(arr) {
+    return !Array.isArray(arr) || !arr.length;
   }
 
   render() {
@@ -38,12 +35,12 @@ export default class CardDeck extends Component {
             </div>
           </div>
           <div className="row">
-            {this.state.apartments || !this.isEmpty(this.state.apartments) ? (
+            {this.isEmpty(this.state.apartments) ? (
+              <h2 className="col-12 text-center">Sorry. No Results.</h2>
+            ) : (
               this.state.apartments.map(a => (
                 <ApartmentCard key={a.Listing.ListingKey} apartment={a} />
               ))
-            ) : (
-              <h2 className="col-12 text-center">Sorry. No Results.</h2>
             )}
           </div>
         </div>
