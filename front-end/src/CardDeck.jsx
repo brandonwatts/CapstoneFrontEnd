@@ -5,31 +5,30 @@ export default class CardDeck extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      apartments: []
+      apartments: null
     };
   }
 
   componentDidMount() {
-    if (this.props.api_response !== "") {
-      var api = JSON.parse(this.props.api_response);
-      // console.log(api);
+    if (this.props.api_response) {
+      var api = this.props.api_response;
       var api_apartments = api.slice(0, 9);
-      // console.log(api_apartments);
       this.setState({
         apartments: api_apartments
       });
     }
   }
 
+  isEmpty(arg) {
+    for (var item in arg) {
+      return false;
+    }
+    return true;
+  }
+
   render() {
     return (
-      <section
-        className="popular-deals section bg-gray"
-        style={{
-          paddingTop: "100px",
-          paddingBottom: "100px"
-        }}
-      >
+      <section className="section bg-gray">
         <div className="container">
           <div className="row">
             <div className="col-md-12">
@@ -39,9 +38,13 @@ export default class CardDeck extends Component {
             </div>
           </div>
           <div className="row">
-            {this.state.apartments.map(a => (
-              <ApartmentCard key={a.Listing.ListingKey} apartment={a} />
-            ))}
+            {this.state.apartments || !this.isEmpty(this.state.apartments) ? (
+              this.state.apartments.map(a => (
+                <ApartmentCard key={a.Listing.ListingKey} apartment={a} />
+              ))
+            ) : (
+              <h2 className="col-12 text-center">Sorry. No Results.</h2>
+            )}
           </div>
         </div>
       </section>

@@ -1,16 +1,17 @@
 import React, { Component } from "react";
+import "./css/ApartmentCard.css";
 
 export default class ApartmentCard extends Component {
   render() {
     return (
-      <div className="col-4">
-        <div className="card mt-3">
+      <div className="col-4  mt-3">
+        <div className="card">
           <img
             className="card-img-top img"
             src={this.props.apartment.PropertyPhotoUrl}
             alt={this.props.apartment.PropertyName}
           />
-          <div className="card-block">
+          <div className="card-body">
             <h4 className="card-title">{this.props.apartment.PropertyName}</h4>
             <p className="card-text mb-0">
               <i className="fa fa-map-marker mr-1" />

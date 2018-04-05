@@ -1,47 +1,46 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 
 let recognition = null;
 
 export default class SearchBar extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
-      value: '',
+      value: "",
       recognizing: false,
-      final_transcript: '',
+      final_transcript: ""
     };
 
     recognition = new window.webkitSpeechRecognition();
     recognition.continuous = false;
     recognition.interimResults = true;
-    recognition.lang = 'en-US';
+    recognition.lang = "en-US";
 
-    recognition.onstart = (event) => {
-      this.setState({recognizing: true, final_transcript: ''})
+    recognition.onstart = event => {
+      this.setState({ recognizing: true, final_transcript: "" });
     };
 
-    recognition.onerror = (event) => {
-      console.log("An error has occured.")
+    recognition.onerror = event => {
+      console.log("An error has occured.");
     };
 
-    recognition.onend = (event) => {
-      this.setState({recognizing: false, value: this.state.final_transcript})
+    recognition.onend = event => {
+      this.setState({ recognizing: false, value: this.state.final_transcript });
       this.props.loadResults(this.state.value);
     };
 
-    recognition.onresult = (event) => {
-
-      var current_transcript = '';
+    recognition.onresult = event => {
+      var current_transcript = "";
 
       for (var i = event.resultIndex; i < event.results.length; ++i) {
         if (event.results[i].isFinal) {
           this.setState({
-            final_transcript: (this.state.final_transcript + event.results[i][0].transcript)
+            final_transcript:
+              this.state.final_transcript + event.results[i][0].transcript
           });
         } else {
           current_transcript += event.results[i][0].transcript;
-          this.setState({value: current_transcript});
+          this.setState({ value: current_transcript });
         }
       }
 
@@ -55,23 +54,22 @@ export default class SearchBar extends Component {
   }
 
   handleChange(e) {
-    this.setState({value: e.target.value});
+    this.setState({ value: e.target.value });
   }
 
   handleSubmit(e) {
-    this.setState({value: ''});
+    this.setState({ value: "" });
     this.props.loadResults(this.state.value);
     e.preventDefault();
   }
 
   listenToSpeech() {
-
     if (this.state.recognizing) {
       recognition.stop();
       return;
     }
 
-    this.setState({value: ''});
+    this.setState({ value: "" });
     recognition.start();
   }
 
@@ -83,35 +81,41 @@ export default class SearchBar extends Component {
   }
 
   render() {
-    return (<div className="advance-search">
-      <form onSubmit={this.handleSubmit}>
-        <div className="row">
-          <div className="input-group col-9">
-            <input type="text" value={this.state.value} onChange={this.handleChange} className={this.state.recognizing
-                ? "form-control intermediate"
-                : "form-control"} id="search" placeholder="Search for Listings"/>
-            <span className="input-group-btn">
-              <button className="btn btn-primary voice-button" type="button" onClick={this.listenToSpeech.bind(this)}>
-                {
+    return (
+      <div className="advance-search">
+        <form onSubmit={this.handleSubmit}>
+          <div className="row">
+            <div className="input-group col-9">
+              <input
+                type="text"
+                value={this.state.value}
+                onChange={this.handleChange}
+                className={
                   this.state.recognizing
-                    ? <i className="fa fa-microphone fa-lg faa-pulse animated"></i>
-                    : <i className="fa fa-microphone fa-lg"></i>
+                    ? "form-control intermediate"
+                    : "form-control"
                 }
-              </button>
-            </span>
-          </div>
-          <div className="col-3">
-            <div className="btn-group" data-toggle="buttons">
-              <button className={this.props.ApiType ? "btn btn-primary" : "btn btn-outline-primary"}  type="button" onClick={this.props.toggleApiType}>
-              CoStar
-              </button>
-              <button className={this.props.ApiType ? "btn btn-outline-primary" : "btn btn-primary"} type="button" onClick={this.props.toggleApiType}>
-              General
-              </button>
+                id="search"
+                placeholder="Search for Listings"
+              />
+              <span className="input-group-btn">
+                <button
+                  className="btn btn-primary voice-button"
+                  type="button"
+                  onClick={this.listenToSpeech.bind(this)}
+                >
+                  {this.state.recognizing ? (
+                    <i className="fa fa-microphone fa-lg faa-pulse animated" />
+                  ) : (
+                    <i className="fa fa-microphone fa-lg" />
+                  )}
+                </button>
+              </span>
             </div>
+            <div className="col-3" />
           </div>
-        </div>
-      </form>
-    </div>);
+        </form>
+      </div>
+    );
   }
 }
