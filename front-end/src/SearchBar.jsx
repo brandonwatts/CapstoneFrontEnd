@@ -26,6 +26,7 @@ export default class SearchBar extends Component {
 
     recognition.onend = event => {
       this.setState({ recognizing: false, value: this.state.final_transcript });
+      this.props.loadResults(this.state.final_transcript);
     };
 
     recognition.onresult = event => {
@@ -57,7 +58,6 @@ export default class SearchBar extends Component {
   }
 
   handleSubmit(e) {
-    this.setState({ value: "" });
     this.props.loadResults(this.state.value);
     e.preventDefault();
   }
