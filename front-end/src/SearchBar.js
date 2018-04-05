@@ -26,7 +26,6 @@ export default class SearchBar extends Component {
 
     recognition.onend = event => {
       this.setState({ recognizing: false, value: this.state.final_transcript });
-      this.props.loadResults(this.state.value);
     };
 
     recognition.onresult = event => {
@@ -84,10 +83,11 @@ export default class SearchBar extends Component {
     return (
       <div className="advance-search">
         <form onSubmit={this.handleSubmit}>
-          <div className="row">
-            <div className="input-group col-9">
+          <div className="form-row">
+            <div className="input-group col-11">
               <input
                 type="text"
+                aria-describedby="basic-addon1"
                 value={this.state.value}
                 onChange={this.handleChange}
                 className={
@@ -98,11 +98,11 @@ export default class SearchBar extends Component {
                 id="search"
                 placeholder="Search for Listings"
               />
-              <span className="input-group-btn">
+              <span className="input-group-btn ">
                 <button
-                  className="btn btn-primary voice-button"
-                  type="button"
+                  className="btn voice-button"
                   onClick={this.listenToSpeech.bind(this)}
+                  type="button"
                 >
                   {this.state.recognizing ? (
                     <i className="fa fa-microphone fa-lg faa-pulse animated" />
@@ -112,7 +112,15 @@ export default class SearchBar extends Component {
                 </button>
               </span>
             </div>
-            <div className="col-3" />
+            <div className="col">
+              <button
+                className="btn btn-primary"
+                onClick={this.handleSubmit}
+                type="button"
+              >
+                Search
+              </button>
+            </div>
           </div>
         </form>
       </div>

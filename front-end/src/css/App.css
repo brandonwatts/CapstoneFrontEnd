@@ -46,40 +46,8 @@ ul {
   list-style: none;
 }
 
-.form-control {
-  border-radius: 2px;
-  height: 50px;
-  background-color: transparent;
-  color: #666;
-  box-shadow: none;
-  font-size: 15px;
-}
-
-.form-control:focus {
-  color: #666;
-  box-shadow: none;
-  border: 1px solid #5672f9;
-  background-color: transparent;
-}
-
-textarea.form-control {
-  padding: 20px;
-}
-
-.form-control::-webkit-input-placeholder {
-  color: #666;
-}
-
 button {
   cursor: pointer;
-}
-
-.btn {
-  font-size: 15px;
-  letter-spacing: 1px;
-  display: inline-block;
-  padding: 15px 30px;
-  border-radius: 4px;
 }
 
 .product-item {
@@ -147,11 +115,6 @@ button {
   border-radius: 3px;
   margin-bottom: -50px;
   box-shadow: -1px 3px 6px rgba(0, 0, 0, 0.12);
-}
-
-.hero-area .advance-search .form-control {
-  color: #000;
-  border-color: #dedede;
 }
 
 .section-title {
@@ -256,10 +219,6 @@ li > i {
   color: #5672f9;
   border-width: 1px 1px 1px 0px;
   border-color: #dedede;
-}
-
-.btn-group {
-  width: 100%;
 }
 
 td {
