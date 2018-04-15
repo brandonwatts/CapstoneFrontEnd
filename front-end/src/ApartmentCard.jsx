@@ -2,9 +2,17 @@ import React, { Component } from "react";
 import "./css/ApartmentCard.css";
 
 export default class ApartmentCard extends Component {
+  getNumStars(num) {
+    let stars = [];
+    for (var i = 0; i < num; i++) {
+      stars.push(<i className="fa fa-star mr-1" key={i} />);
+    }
+    return stars;
+  }
+
   render() {
     return (
-      <div className="col-4 mt-3">
+      <div className="col-12 col-md-6 col-lg-4 mt-3">
         <div
           className="card"
           onClick={() =>
@@ -55,11 +63,7 @@ export default class ApartmentCard extends Component {
               </div>
               <div className="col-6">
                 <p className="card-text text-right">
-                  <i className="fa fa-star mr-1" />
-                  <i className="fa fa-star mr-1" />
-                  <i className="fa fa-star mr-1" />
-                  <i className="fa fa-star mr-1" />
-                  <i className="fa fa-star mr-1" />
+                  {this.getNumStars(this.props.apartment.Listing.Rating)}
                 </p>
               </div>
             </div>
