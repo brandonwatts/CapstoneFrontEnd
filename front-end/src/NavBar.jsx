@@ -9,9 +9,7 @@ export default class NavBar extends Component {
           <nav className="navbar navbar-expand-lg navbar-light">
             <div className="container">
               <a className="navbar-brand">
-                <div>
-                  <h3>SmartSearch</h3>
-                </div>
+                <h3>SmartSearch</h3>
               </a>
               <button
                 className="navbar-toggler"

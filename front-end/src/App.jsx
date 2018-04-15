@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./css/App.css";
+import "./css/font-awesome-extension.min.css";
 import General from "./General.jsx";
 import Apartments from "./Apartments.jsx";
 
