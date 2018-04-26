@@ -162,7 +162,7 @@ export default class Table extends Component {
                     </td>
                     <td className="text-center">
                       {this.state.cat_friendly
-                        ? this.state.dog_friendly.toString()
+                        ? this.state.cat_friendly.toString()
                         : null}
                     </td>
                     <td className="text-center">
