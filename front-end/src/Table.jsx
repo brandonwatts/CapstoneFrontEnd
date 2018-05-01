@@ -11,7 +11,6 @@ export default class Table extends Component {
       max_bdrm: "",
       min_price: "",
       max_price: "",
-      price_type: "",
       zip_code: "",
       address: "",
       city: "",
@@ -28,9 +27,7 @@ export default class Table extends Component {
       has_parking: null,
       star_rating: "",
       is_furnished: null,
-      has_laundry_facilities: null,
-      property_type: "",
-      search_radius: ""
+      has_laundry_facilities: null
     };
   }
 
@@ -59,8 +56,7 @@ export default class Table extends Component {
         has_parking: nextProps.api_response.has_parking,
         star_rating: nextProps.api_response.star_rating,
         is_furnished: nextProps.api_response.furnished,
-        has_laundry_facilities: nextProps.api_response.has_laundry_facilities,
-        search_radius: nextProps.api_response.search_radius
+        has_laundry_facilities: nextProps.api_response.has_laundry_facilities
       });
     }
   }
@@ -81,18 +77,16 @@ export default class Table extends Component {
               <table className="table table-bordered mb-0">
                 <thead className="thead-light">
                   <tr>
-                    <th className="w-25 text-center">Minimum Bedrooms</th>
-                    <th className="w-25 text-center">Maximum Bedrooms</th>
-                    <th className="w-25 text-center">Minimum Price</th>
-                    <th className="w-25 text-center">Maximum Price</th>
+                    <th className="w-25 text-center">City</th>
+                    <th className="w-25 text-center">State</th>
+                    <th className="w-25 text-center">Zip Code</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="text-center">{this.state.min_bdrm}</td>
-                    <td className="text-center">{this.state.max_bdrm}</td>
-                    <td className="text-center">{this.state.min_price}</td>
-                    <td className="text-center">{this.state.max_price}</td>
+                    <td className="text-center">{this.state.city}</td>
+                    <td className="text-center">{this.state.us_state}</td>
+                    <td className="text-center">{this.state.zip_code}</td>
                   </tr>
                 </tbody>
               </table>
@@ -106,15 +100,15 @@ export default class Table extends Component {
                     <th className="w-25 text-center">Minimum Square Feet</th>
                     <th className="w-25 text-center">Maximum Square Feet</th>
                     <th className="w-25 text-center">Build Year</th>
-                    <th className="w-25 text-center">Pricing Type</th>
+                    <th className="w-25 text-center">Address</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
+                    <td className="text-center">{this.state.address}</td>
                     <td className="text-center">{this.state.min_sqft}</td>
                     <td className="text-center">{this.state.max_sqft}</td>
                     <td className="text-center">{this.state.build_year}</td>
-                    <td className="text-center">{this.state.price_type}</td>
                   </tr>
                 </tbody>
               </table>
@@ -125,18 +119,18 @@ export default class Table extends Component {
               <table className="table table-bordered mb-0">
                 <thead className="thead-light">
                   <tr>
-                    <th className="w-25 text-center">City</th>
-                    <th className="w-25 text-center">State</th>
-                    <th className="w-25 text-center">Zip Code</th>
-                    <th className="w-25 text-center">Address</th>
+                    <th className="w-25 text-center">Minimum Bedrooms</th>
+                    <th className="w-25 text-center">Maximum Bedrooms</th>
+                    <th className="w-25 text-center">Minimum Price</th>
+                    <th className="w-25 text-center">Maximum Price</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td className="text-center">{this.state.city}</td>
-                    <td className="text-center">{this.state.us_state}</td>
-                    <td className="text-center">{this.state.zip_code}</td>
-                    <td className="text-center">{this.state.address}</td>
+                    <td className="text-center">{this.state.min_bdrm}</td>
+                    <td className="text-center">{this.state.max_bdrm}</td>
+                    <td className="text-center">{this.state.min_price}</td>
+                    <td className="text-center">{this.state.max_price}</td>
                   </tr>
                 </tbody>
               </table>
@@ -247,24 +241,6 @@ export default class Table extends Component {
                         ? this.state.has_laundry_facilities.toString()
                         : null}
                     </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-12">
-              <table className="table table-bordered mb-0">
-                <thead className="thead-light">
-                  <tr>
-                    <th className="w-25 text-center">Property Type</th>
-                    <th className="w-25 text-center">Search Radius</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td className="text-center">{this.state.property_type}</td>
-                    <td className="text-center">{this.state.search_radius}</td>
                   </tr>
                 </tbody>
               </table>
